@@ -12,14 +12,13 @@ namespace FileReader
         {
             int? matches = null;
 
-            if (!File.Exists(path))
-            {
-                Console.WriteLine($"File does not exist: {0}", path);
-                return matches;
-            }
-
             try
             {
+                if (!File.Exists(path))
+                {
+                    throw new IOException($"File does not exist.");
+                }
+
                 string filenameWithoutExtension = Path.GetFileNameWithoutExtension(path);
 
                 // I assume the file Encoding is UTF8
