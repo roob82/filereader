@@ -92,7 +92,7 @@ namespace TestFileReader
             var result = fileHandler.Run(fullPath);
 
             // Assert
-            Assert.AreEqual(result, 0);
+            Assert.AreEqual(0, result);
         }
 
         [TestMethod]
@@ -106,7 +106,7 @@ namespace TestFileReader
             var result = fileHandler.Run(fullPath);
 
             // Assert
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
         }
 
         [TestMethod]
@@ -120,7 +120,7 @@ namespace TestFileReader
             var result = fileHandler.Run(fullPath);
 
             // Assert
-            Assert.AreEqual(result, 2);
+            Assert.AreEqual(2, result);
         }
 
         [TestMethod]
@@ -134,7 +134,7 @@ namespace TestFileReader
             var result = fileHandler.Run(fullPath);
 
             // Assert
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(3, result);
         }
 
         private static string CreatePath(string file)
