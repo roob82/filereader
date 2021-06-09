@@ -56,13 +56,27 @@ namespace TestFileReader
         }
 
         [TestMethod]
-        public void RunFilePathValidatePathIsIncorrect()
+        public void RunFilePathValidatePathInvalidArguments()
         {
             // Arrange
             string[] args = new string[] { };
 
             // Act
             var validatedArgs = new ValidateInput().Validate(args);
+
+            // Assert
+            Assert.IsNull(validatedArgs);
+        }
+
+        [TestMethod]
+        public void RunFilePathValidatePathIsIncorrect()
+        {
+            // Arrange
+            string[] args = new string[] { @"c:\.fsdgfsd\sd&*-&\*.txt" };
+
+            // Act
+            var validatedArgs = new ValidateInput().Validate(args);
+
             // Assert
             Assert.IsNull(validatedArgs);
         }

@@ -5,27 +5,32 @@ namespace FileReader
 {
     public class ValidateInput
     {
-        public string Validate(string[] input)
+        public string Validate(string[] args)
         {
             string path = null;
 
-            if (input == null || input.Length == 0)
-            {
-                return path;
-            }
-
             try
             {
-                var fileInfo = new FileInfo(input[0]);
+                if (args == null || args.Length == 0)
+                {
+                    throw new ArgumentNullException(nameof(args), "Missing arguments.");
+                }
+
+                if (Path.GetFileName(args[0]).IndexOfAny(Path.GetInvalidFileNameChars()) == -1)
+                {
+                    path = args[0];
+                }
+                else
+                {
+                    throw new IOException("The filename contains invalid characters.");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //TODO Not a valid path
+                Console.WriteLine("Validation of input args failed: " + ex.Message);
                 return null;
             }
 
-            //TODO
-            path = input[0];
             return path;
         }
     }
