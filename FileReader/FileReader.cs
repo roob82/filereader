@@ -14,7 +14,7 @@ namespace FileReader
 
                 if (matches != null)
                 {
-                    Console.WriteLine($"Found {0} matching pattern", matches);
+                    Console.WriteLine($"Found {matches} matching pattern");
                     return true;
                 }
                 else
